@@ -26,13 +26,13 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th >ID</th>
-						<th>Title</th>
-						<th>Author</th>
-						<th>Description</th>
-						<th>Category</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th th:text="#{ID}"></th>
+						<th th:text="#{Title}"></th>
+						<th th:text="#{Author}"></th>
+						<th th:text="#{Description}"></th>
+						<th th:text="#{Category}"></th>
+						<th th:text="#{Edit}"></th>
+						<th th:text="#{Delete}"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,8 +49,8 @@
 			</table>
 		</div>
 		<p>
-			<a class="btn btn-primary" href="/admin/signup">Add new book</a>
-			<a class="btn btn-primary" href="/logout">Log Out</a>
+			<a class="btn btn-primary" href="/admin/signup"th:text="#{Addnewbook}"></a>
+			<a class="btn btn-primary" href="/logout"th:text="#{LogOut}"></a>
 	
 	<span th:text="#{lang.change}"></span>:
 	<select id="locales">
