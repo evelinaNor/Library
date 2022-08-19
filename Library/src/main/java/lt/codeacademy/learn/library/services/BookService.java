@@ -30,7 +30,7 @@ public class BookService {
 		bookRepository.delete(book);
 	}
 
-	public Book getProductsById(int id) {
+	public Book getBooksById(int id) {
 		
 		return bookRepository.findById(id).get();
 	}
@@ -39,7 +39,7 @@ public class BookService {
 		  return bookRepository.findByKeyword(keyword);
 	 }
 	 
-	 public List<Book> getAllProducts(){
+	 public List<Book> getAllBooks(){
 		  List<Book> list =  (List<Book>)bookRepository.findAll();
 		  return list;
 		 }
