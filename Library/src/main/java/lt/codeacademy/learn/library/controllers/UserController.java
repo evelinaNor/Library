@@ -21,7 +21,7 @@ public class UserController {
 	@Autowired
 	private BookService bookService;
 	
-	@RequestMapping(path = {"/","/search"})
+	@RequestMapping(path = {"/view"})
 	 public String home(Book book, Model model, String keyword) {
 	  if(keyword!=null) {
 		  List<Book> list = bookService.getByKeyword(keyword);
