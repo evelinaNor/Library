@@ -1,5 +1,4 @@
 package lt.codeacademy.learn.library.security;
-
 import java.io.IOException;
 import java.util.Collection;
 
@@ -38,3 +37,4 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 		new DefaultRedirectStrategy().sendRedirect(request, response, redirectUrl);
 	}
 }
+

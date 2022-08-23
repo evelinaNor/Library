@@ -2,15 +2,18 @@ package lt.codeacademy.learn.library.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Book {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutorial_generator")
 	private Integer id;
 	private String title;
 	private String description;
 	private String category;
 	private String author;
+	
 	
 	public Book() {}
 	

@@ -27,10 +27,11 @@ public class UserController {
 		  List<Book> list = bookService.getByKeyword(keyword);
 	   model.addAttribute("list", list);
 	  }else {
-		  List<Book> list = bookService.getAllProducts();
+		  List<Book> list = bookService.getAllBooks();
 	  model.addAttribute("list", list);}
 	  return "view";
 	 }
+	
 	
 	
 } //https://codebun.com/spring-boot-search-example-using-thymeleaf-and-spring-data-jpa/
