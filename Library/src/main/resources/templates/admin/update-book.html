@@ -19,23 +19,22 @@
 		th:action="@{/admin/update/{id}(id=${book.id})}" th:object="${book}"
 		method="post">
 		
-		<label for="title">Title</label> <input type="text" th:field="*{title}"
+		<label for="title"th:text="#{Title}"></label> <input type="text" th:field="*{title}"
 			id="title" placeholder="Title"> <span
 			th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span> 
-		<label for="author">Author</label> <input type="text" th:field="*{author}"
+		<label for="author"th:text="#{Author}"></label> <input type="text" th:field="*{author}"
 			id="author" placeholder="Author"> <span
 			th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span> 
 		<label
-			for="description">Description</label> <input type="text" th:maxlength="250" th:field="*{description}"
+			for="description"th:text="#{Description}"></label> <input type="text" th:maxlength="250" th:field="*{description}"
 			id="description" placeholder="Description"> <span 
 			th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span> 
-		<label for="category">Category</label> <input type="text" th:field="*{category}"
+		<label for="category"th:text="#{Category}"></label> <input type="text" th:field="*{category}"
 			id="category" placeholder="Category"> <span
 			th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span> 
 		
-			<input class="btn btn-primary"
-			type="submit" value="Update Book">
-			<a href="/admin/index" class="btn btn-primary">Cancel</a>
+			<button type="submit" class="btn btn-primary"th:text="#{UpdateBook}"></button>
+			<a href="/admin/index" class="btn btn-primary"th:text="#{Cancel}"></a>
 	</form>
 </body>
 </html>
