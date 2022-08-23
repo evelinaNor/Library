@@ -20,29 +20,29 @@
 		<form class="form-control" action="#" th:action="@{/admin/addbook}"
 			th:object="${book}" method="post">
 			<div class="mb-3 mt-3 w-auto">
-				<label class="form-check-label w-25" for="brand">Title</label> <input
+				<label class="form-check-label w-25" for="brand"th:text="#{Title}"></label> <input
 					class="form-check-input w-auto" type="text" th:field="*{title}"
-					id="title" placeholder="Title">
+					id="title" placeholder="Title/Pavadinimas">
 			</div>
 			<div class="mb-3 mt-3 w-auto">
-				<label class="form-check-label w-25" for="author">Author</label> <input
+				<label class="form-check-label w-25" for="author"th:text="#{Author}"></label> <input
 					class="form-check-input w-auto" type="text" th:field="*{author}"
-					id="author" placeholder="author">
+					id="author" placeholder="Author/Autorius">
 			</div>
 			<div class="mb-3 mt-3 w-auto">
-				<label class="form-check-label w-25" for="description">Description</label>
+				<label class="form-check-label w-25" for="description"th:text="#{Description}"></label>
 				<input class="form-check-input w-auto" type="text"
 				th:maxlength="250"
 				th:field="*{description}" id="description"
-				placeholder="description">
+				placeholder="Description/Aprašymas">
 			</div>
 
 			<div class="mb-3 mt-3 w-auto">
-				<label class="form-check-label w-25" for="category">Category</label>
+				<label class="form-check-label w-25" for="category"th:text="#{Category}"></label>
 				<input class="form-check-input w-auto" type="text"
-					th:field="*{category}" id="category" placeholder="category">
+					th:field="*{category}" id="category" placeholder="Category/Kategorija">
 			</div>
-			<button type="submit" class="btn btn-primary">Add book</button>
+			<button type="submit" class="btn btn-primary"th:text="#{addBook}"></button>
 		</form>
 	</div>
 </body>
