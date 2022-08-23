@@ -13,7 +13,7 @@
 <div class="container mt-5">
 <h2 align="center"th:text="#{SearchInBooks}"></h2>
   <form th:action="@{/user/view}" method="get">
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by book title/Įveskite knygos pavadinimą" size="50" >
+  <input type="text" name="keyword" th:value="${keyword}"  th:placeholder="#{FindByBook}" size="50" >
   <button type="submit" class="btn btn-info" th:text="#{Search}"></button>
   <button type="submit" class="btn btn-info" th:text="#{Clear}"></button>
   </form>

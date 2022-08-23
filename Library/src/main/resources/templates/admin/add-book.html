@@ -22,25 +22,25 @@
 			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="brand"th:text="#{Title}"></label> <input
 					class="form-check-input w-auto" type="text" th:field="*{title}"
-					id="title" placeholder="Title/Pavadinimas">
+					id="title" th:placeholder="#{Title}">
 			</div>
 			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="author"th:text="#{Author}"></label> <input
 					class="form-check-input w-auto" type="text" th:field="*{author}"
-					id="author" placeholder="Author/Autorius">
+					id="author" th:placeholder="#{Author}">
 			</div>
 			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="description"th:text="#{Description}"></label>
 				<input class="form-check-input w-auto" type="text"
 				th:maxlength="250"
 				th:field="*{description}" id="description"
-				placeholder="Description/Aprašymas">
+				th:placeholder="#{Description}">
 			</div>
 
 			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="category"th:text="#{Category}"></label>
 				<input class="form-check-input w-auto" type="text"
-					th:field="*{category}" id="category" placeholder="Category/Kategorija">
+					th:field="*{category}" id="category" th:placeholder="#{Category}">
 			</div>
 			<button type="submit" class="btn btn-primary"th:text="#{addBook}"></button>
 			<a href="/admin/index" class="btn btn-primary"th:text="#{Cancel}"></a>
