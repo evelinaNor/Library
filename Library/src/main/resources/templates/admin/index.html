@@ -11,11 +11,10 @@
 
 <meta charset="ISO-8859-1" />
 <link href="css/styles.css" rel="stylesheet" />
-<title>Spring Boot Application</title>
 </head>
 <body>
 
-	<div class="container-fluid p-5 bg-primary text-white text-center">
+	<div class="bg-success p-2 text-white text-center" style="--bs-bg-opacity: .5;">
 		<h2 th:text="#{greeting}"> </h2>
 		<p th:text="#{greeting2}"> </p>
 	</div>
@@ -49,8 +48,8 @@
 			</table>
 		</div>
 		<p>
-			<a class="btn btn-primary" href="/admin/signup"th:text="#{Addnewbook}"></a>
-			<a class="btn btn-primary" href="/logout"th:text="#{LogOut}"></a>
+			<a class="btn btn-outline-success" href="/admin/signup"th:text="#{Addnewbook}"></a>
+			<a class="btn btn-outline-success" href="/logout"th:text="#{LogOut}"></a>
 	
 	<span th:text="#{lang.change}"></span>:
 	<select id="locales">
