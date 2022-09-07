@@ -13,10 +13,27 @@ public class Book {
 	private String description;
 	private String category;
 	private String author;
-	
+	private String image;
 	
 	public Book() {}
 	
+	@Transient
+	public String getImagePath() {
+		if (image == null || id == null)
+			return null;
+		return "/book-images/" + id + "/" + image;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
 	public Integer getId() {
 		return id;
 	}

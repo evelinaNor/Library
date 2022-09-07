@@ -1,5 +1,7 @@
 package lt.codeacademy.learn.library.internationalization;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 
 import org.springframework.context.MessageSource;
@@ -8,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -35,5 +38,15 @@ public class MessageConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 	    registry.addInterceptor(localeChangeInterceptor());
 	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		Path bookUploadDir = Paths.get("./book-images");
+		
+		String bookUploadPath = bookUploadDir.toFile().getAbsolutePath();
+		
+		registry.addResourceHandler("/book-images/**").addResourceLocations("file:/" + bookUploadPath + "/");
+	}
+	
 	
 }
