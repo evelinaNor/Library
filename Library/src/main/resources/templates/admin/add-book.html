@@ -18,7 +18,17 @@
 		<h2 th:text="#{addBook}"></h2>
 
 		<form class="form-control" action="#" th:action="@{/admin/addbook}"
-			th:object="${book}" method="post">
+			th:object="${book}" method="post" enctype="multipart/form-data" >
+			
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="image" th:text="#{Image}"></label>
+				<input type="file" name = "image" id="image" accept="image/png, image/jpeg">
+				<p> 
+				<img id="thumbnail" alt="Image Preview"/>
+				</p>
+	
+			</div>
+
 			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="brand"th:text="#{Title}"></label> <input
 					class="form-check-input w-auto" type="text" th:field="*{title}"
@@ -46,5 +56,24 @@
 			<a href="/admin/index" class="btn btn-primary"th:text="#{Cancel}"></a>
 		</form>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>			
+	<script type="text/javascript">
+	$(document).ready(function() {
+    $('#image').change(function () {
+        showImageThumbnail(this);
+	});
+    
+    function showImageThumbnail(fileInput){
+    	file = fileInput.files[0];
+    	reader = new FileReader();
+    	
+    	reader.onload = function(e){
+    		$('#thumbnail').attr('src', e.target.result);
+    	};
+    	reader.readAsDataURL(file);
+    	}
+	});
+	</script>
 </body>
 </html>

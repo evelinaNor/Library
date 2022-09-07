@@ -26,6 +26,7 @@
 				<thead>
 					<tr>
 						<th th:text="#{ID}"></th>
+						<th> Image</th>
 						<th th:text="#{Title}"></th>
 						<th th:text="#{Author}"></th>
 						<th th:text="#{Description}"></th>
@@ -37,6 +38,9 @@
 				<tbody>
 					<tr th:each="book : ${books}">
 						<td th:text="${book.id}"></td>
+						<td>
+						<img th:src="@{${book.getImagePath}}">
+						</td>
 						<td th:text="${book.title}"></td>
 						<td th:text="${book.author}"></td>
 						<td th:text="${book.description}"></td>
