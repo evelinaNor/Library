@@ -33,8 +33,8 @@
 			id="category" placeholder="Category"> <span
 			th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span> 
 		
-			<button type="submit" class="btn btn-primary"th:text="#{UpdateBook}"></button>
-			<a href="/admin/index" class="btn btn-primary"th:text="#{Cancel}"></a>
+			<button type="submit" class="btn btn-success"th:text="#{UpdateBook}"></button>
+			<a href="/admin/index" class="btn btn-outline-success"th:text="#{Cancel}"></a>
 	</form>
 </body>
 </html>

@@ -14,10 +14,10 @@
 <h2 align="center"th:text="#{SearchInBooks}"></h2>
   <form th:action="@{/user/view}" method="get">
   <input type="text" name="keyword" th:value="${keyword}"  th:placeholder="#{FindByBook}" size="50" >
-  <button type="submit" class="btn btn-info" th:text="#{Search}"></button>
-  <button type="submit" class="btn btn-info" th:text="#{Clear}"></button>
+  <button type="submit" class="btn btn-outline-success" th:text="#{Search}"></button>
+  <button type="submit" class="btn btn-outline-success" th:text="#{Clear}"></button>
   </form>
-  <table class="table table-bordered table-sm mt-2">
+  <table class="table table-bordered table-sm mt-2 table-success table-hover">
     <thead>
       <tr>
       <th th:text="#{ID}"></th>
@@ -39,11 +39,11 @@
         <td th:text="${l.author}"></td>
         <td th:text="${l.description}"></td>
         <td th:text="${l.category}"></td>
-        <td> <a class="btn btn-info" role="button"th:text="#{Review}"></a> </td>
+        <td> <a class="btn btn-success" role="button"th:text="#{Review}"></a> </td>
       </tr>
     </tbody>
   </table>
-  <a class="btn btn-primary" href="/logout"th:text="#{LogOut}"></a>
+  <a class="btn btn-success" href="/logout"th:text="#{LogOut}"></a>
   
   <span th:text="#{lang.change}"></span>
 	<select id="locales">
