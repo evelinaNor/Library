@@ -10,8 +10,12 @@
 <title>USER</title>
 </head>
 <body>
-<div class="container mt-5">
-<h2 align="center"th:text="#{SearchInBooks}"></h2>
+
+	<div class="bg-success p-2 text-white text-center" style="--bs-bg-opacity: .5;">
+		<h2 th:text="#{greeting}"> </h2>
+		<p th:text="#{greeting2}"> </p>
+	</div>
+<h4 th:text="#{SearchInBooks}"></h4>
   <form th:action="@{/user/view}" method="get">
   <input type="text" name="keyword" th:value="${keyword}"  th:placeholder="#{FindByBook}" size="50" >
   <button type="submit" class="btn btn-outline-success" th:text="#{Search}"></button>
@@ -21,7 +25,7 @@
     <thead>
       <tr>
       <th th:text="#{ID}"></th>
-      <th> Image</th>
+      <th th:text="#{Image}"></th>
         <th th:text="#{Title}"></th>
         <th th:text="#{Author}"></th>
   <!--     <th th:text="#{Description}"></th> -->  
