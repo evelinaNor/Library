@@ -37,7 +37,7 @@
       <tr th:each="l : ${list}" th:field="${l}">
         <td th:text="${l.id}"></td>
          <td>
-     <img th:src="@{${l.getImagePath}}">
+     <img th:src="@{${l.getImagePath}}" class="img-thumbnail" width="200" height="200">
      </td>
         <td th:text="${l.title}"></td>
         <td th:text="${l.author}"></td>
