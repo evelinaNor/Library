@@ -32,12 +32,6 @@ public class AdminController {
 	@Autowired
 	BookService bookService;
 	
-	
-	/**
-	 * This method represents all book list. 
-	 * ModelAttribute is an annotation that binds a method parameter or method return value to a named model attribute, 
-	 * and then exposes it to a web view.
-	 */
 	@GetMapping("/index")
 	public String showBookList(Model model) {
 	    model.addAttribute("books", bookService.findAll());
@@ -54,17 +48,39 @@ public class AdminController {
 	    return "admin/update-book";
 	}
 	
+	
 	@PostMapping("/update/{id}")
 	public String updateBook(@PathVariable("id") int id, Book book, 
-	  BindingResult result, Model model) {
-	    if (result.hasErrors()) {
-	        book.setId(id);
-	        return "admin/update-book";
-	    }
+	  BindingResult result, Model model,
+	   // if (result.hasErrors()) {
+	        //book.setId(id);
+		@RequestParam ("image") MultipartFile multipartFile) throws IOException {
+
+	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+	        book.setImage(fileName);
 	        
-	    bookService.save(book);
-	    return "redirect:/admin/index";
-	}
+	      Book savedBook = bookService.save(book);
+	      
+	      String uploadDir = "./book-images/" + savedBook.getId();
+	      Path uploadPath = Paths.get(uploadDir);
+	      
+	      
+	      if(!Files.exists(uploadPath)) {
+	    	  Files.createDirectories(uploadPath);
+	      }
+	      
+	     try (InputStream inputStream = multipartFile.getInputStream()) {
+	      Path filePath = uploadPath.resolve(fileName);
+	      System.out.println(filePath.toFile().getAbsolutePath());
+	      
+	      Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+	     } catch(IOException e){
+	    	 throw new IOException("Could not save upload file: " + fileName);
+	    	 
+	     }
+	        return "redirect:/admin/index";  
+	}      
+	
 	    
 	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") int id, Model model) {

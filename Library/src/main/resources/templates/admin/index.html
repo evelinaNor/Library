@@ -43,7 +43,7 @@
 						</td>
 						<td th:text="${book.title}"></td>
 						<td th:text="${book.author}"></td>
-						<td th:text="${book.description}"></td>
+						<td style="max-width:300px" th:text="${book.description}"></td>
 						<td th:text="${book.category}"></td>
 						<td><a class="btn btn-outline-success" th:href="@{/admin/edit/{id}(id=${book.id})}"th:text="#{Edit}"></a></td>
 						<td><a class="btn btn-success" th:href="@{/admin/delete/{id}(id=${book.id})}"th:text="#{Delete}"></a></td>
