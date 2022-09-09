@@ -52,8 +52,6 @@ public class AdminController {
 	@PostMapping("/update/{id}")
 	public String updateBook(@PathVariable("id") int id, Book book, 
 	  BindingResult result, Model model,
-	   // if (result.hasErrors()) {
-	        //book.setId(id);
 		@RequestParam ("image") MultipartFile multipartFile) throws IOException {
 
 	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());

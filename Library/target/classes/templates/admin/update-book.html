@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Users</title>
+<title>ADMIN</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link
@@ -11,31 +11,72 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="ISO-8859-1" />
 <link href="css/styles.css" rel="stylesheet" />
-<title>Spring Boot Application</title>
 </head>
 <body>
 
 	<form class="form-control" action="#"
 		th:action="@{/admin/update/{id}(id=${book.id})}" th:object="${book}"
-		method="post">
+		method="post" enctype="multipart/form-data">
 		
-		<label for="title">Title</label> <input type="text" th:field="*{title}"
+		<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="image" th:text="#{Image}"></label>
+				<input type="file" name = "image" id="image" accept="image/png, image/jpeg">
+				<p> 
+				<img th:src="@{${book.getImagePath}}" id="thumbnail" class="img-thumbnail" width="200" height="200" alt="Image preview"/>
+				</p>
+		</div>
+		
+		<div class="mb-3 mt-3 w-auto">
+		<label for="title"th:text="#{Title}"></label> <input type="text" th:field="*{title}"
 			id="title" placeholder="Title"> <span
 			th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span> 
-		<label for="author">Author</label> <input type="text" th:field="*{author}"
+		</div>
+		
+		<div class="mb-3 mt-3 w-auto">
+		<label for="author"th:text="#{Author}"></label> <input type="text" th:field="*{author}"
 			id="author" placeholder="Author"> <span
 			th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span> 
+		</div>
+		
+		<div class="mb-3 mt-3 w-auto">
 		<label
-			for="description">Description</label> <input type="text" th:maxlength="250" th:field="*{description}"
-			id="description" placeholder="Description"> <span 
+			for="description"th:text="#{Description}"></label> <textarea
+				th:field="*{description}" id="description"
+				rows="10" cols="50"
+				type="text"
+				th:maxlength="500"
+				th:placeholder="#{Description}"></textarea> <span 
 			th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span> 
-		<label for="category">Category</label> <input type="text" th:field="*{category}"
+		</div>
+		
+		<div class="mb-3 mt-3 w-auto">
+		<label for="category"th:text="#{Category}"></label> <input type="text" th:field="*{category}"
 			id="category" placeholder="Category"> <span
 			th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span> 
+		</div>
 		
-			<input class="btn btn-primary"
-			type="submit" value="Update Book">
-			<a href="/admin/index" class="btn btn-primary">Cancel</a>
+			<button type="submit" class="btn btn-success"th:text="#{UpdateBook}"></button>
+			<a href="/admin/index" class="btn btn-outline-success"th:text="#{Cancel}"></a>
 	</form>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>			
+	<script type="text/javascript">
+	$(document).ready(function() {
+    $('#image').change(function () {
+        showImageThumbnail(this);
+	});
+    
+    function showImageThumbnail(fileInput){
+    	file = fileInput.files[0];
+    	reader = new FileReader();
+    	
+    	reader.onload = function(e){
+    		$('#thumbnail').attr('src', e.target.result);
+    	};
+    	reader.readAsDataURL(file);
+    	}
+	});
+	</script>
 </body>
 </html>

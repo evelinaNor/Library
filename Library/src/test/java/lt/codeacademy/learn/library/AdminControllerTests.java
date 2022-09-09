@@ -76,18 +76,6 @@ class AdminControllerTests {
 		.andExpect(status().isOk());
 	}
 	
-	@Test
-	void shouldCreateNewBook() throws Exception {
-	  this.mockMvc
-	    .perform(post("/admin/addbook")
-	      .param("name", "Alice")
-	      .param("description", "Dummy Dummy")
-	      .param("category", "Dummy")
-	      .param("author", "author"))
-	    .andExpect(status().is3xxRedirection())
-	   	.andExpect(header().string("Location", "/admin/index"));
-	}
-	
 	
 	@Test
 	void whenSavingMethodSaveShouldBeCalled() {

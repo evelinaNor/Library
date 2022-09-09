@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 @SpringBootApplication
 public class LibraryApplication {
 
+	/**
+	 * Main spring boot application paleidimas/startas
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryApplication.class, args);
 	}

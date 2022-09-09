@@ -11,11 +11,10 @@ import lt.codeacademy.learn.library.entities.Book;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
-
+	List<Book> findByTitleContaining(String title);
 
 	@Query(value = "SELECT * FROM book b where b.title like %:keyword%", nativeQuery = true)
 	List<Book> findByKeyword(@Param("keyword") String keyword);
-	
 	
 	
 }

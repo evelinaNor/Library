@@ -43,7 +43,7 @@
         <td th:text="${l.author}"></td>
 <!--     <td th:text="${l.description}"></td> -->
         <td th:text="${l.category}"></td>
-        <td> <a class="btn btn-success" role="button"th:text="#{Review}"></a> </td>
+         <td> <a th:href="@{/user/book/bookDetails/{id}(id=${l.id})}" class="btn btn-success" role="button" th:text="#{Review}"></a> </td>
       </tr>
     </tbody>
   </table>
